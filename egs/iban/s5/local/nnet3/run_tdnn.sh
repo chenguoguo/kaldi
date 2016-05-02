@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Combined from from WSJ + RM 
+# Combined from from WSJ + RM
 
 # this is the standard "tdnn" system, built in nnet3; it's what we use to
 # call multi-splice.
@@ -15,7 +15,7 @@
 stage=9
 train_stage=-10
 dir=exp/nnet3/nnet_tdnn_h_sp_4_850_170
-. cmd.sh
+. ./cmd.sh
 . ./path.sh
 . ./utils/parse_options.sh
 
@@ -59,7 +59,7 @@ if [ $stage -le 10 ]; then
     steps/nnet3/decode.sh --nj 6 --cmd "$decode_cmd" \
         --online-ivector-dir exp/nnet3/ivectors_dev --iter final\
        $graph_dir data/dev_hires $dir/decode_dev || exit 1;
-  
+
 fi
 
 if [ $stage -le 11 ]; then
